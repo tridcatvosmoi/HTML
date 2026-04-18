@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ферма "Добрый урожай" - Натуральные продукты с 1789 года</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body {
+            background-color: #f5f5f0;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Шапка */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #8B4513;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #5C4033;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Old English Text MT', 'Times New Roman', serif;
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 10px;
+            color: #5C4033;
+        }
+        
+        /* Навигация */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #5C4033;
+            font-size: 1.2rem;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            border-bottom: 1px solid #8B4513;
+        }
+        
+        /* Основной контент */
+        .hero {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background-color: rgba(139, 69, 19, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border: 5px solid #fff;
+        }
+        
+        h1, h2, h3 {
+            color: #5C4033;
+            margin-bottom: 20px;
+            font-family: 'Old English Text MT', 'Times New Roman', serif;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 1px solid #8B4513;
+            padding-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* Продукция */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #8B4513;
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+        
+        /* О ферме */
+        .about {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .about-text {
+            flex: 2;
+            padding-right: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border: 5px solid #fff;
+        }
+        
+        /* Контакты */
+        .contact {
+            background-color: rgba(139, 69, 19, 0.1);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .contact-details, .social-media {
+            flex: 1;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #5C4033;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #8B4513;
+        }
+        
+        /* Форма подписки */
+        .newsletter {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #8B4513;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #5C4033;
+        }
+        
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #8B4513;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #5C4033;
+        }
+        
+        /* Кнопка */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #5C4033;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero, .about {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter-form input {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 5px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Ферма "Добрый урожай"</div>
+            <div class="slogan">"Наипревосходнейшие продукты земледелия и скотоводства с 1789 года от Рождества Христова"</div>
+        </header>
+        
+        <nav>
+            <a href="#products">Наша продукция</a>
+            <a href="#about">О ферме</a>
+            <a href="#contact">Контакты</a>
+            <a href="#newsletter">Подписаться</a>
+        </nav>
+        
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Добро пожаловать в наше фермерское угодье!</h1>
+                <p>Угодья наши, кои с Божьей помощью обрабатываем, дарят нам плоды земные наипревосходнейшего качества. Сейте доброе, вечное, вкусное!</p>
+                <p>Ныне предлагаем вам, достопочтеннейшие господа и милостивые государыни, отведать плодов трудов наших, взращённых в согласии с природой, без суетных новомодных измышлений.</p>
+                <a href="#products" class="btn">Узреть продукцию</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ферма Добрый урожай">
+            </div>
+        </section>
+        
+        <section id="products">
+            <h2>Наша превосходная продукция</h2>
+            <div class="products">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Овощи">
+                    <h3>Овощи отборные</h3>
+                    <p>Свежайшие овощи, взращённые на плодородной земле под ласковым солнцем. Капуста, морковь, репа и прочие дары природы.</p>
+                    <div class="price">От 15 медяков за меру</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Фрукты">
+                    <h3>Фрукты спелые</h3>
+                    <p>Яблоки, груши, сливы - плоды райские, коими не стыдно и к барскому столу подать. Сладки, сочны, душисты.</p>
+                    <div class="price">От 20 медяков за меру</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Молочные продукты">
+                    <h3>Молочные продукты</h3>
+                    <p>Молоко парное, сметана, творог и сыры от коров, пасущихся на лугах цветущих. Жирность и вкус - как встарь деды наши едали.</p>
+                    <div class="price">От 25 медяков за меру</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Мясо">
+                    <h3>Мясо свежее</h3>
+                    <p>Говядина, свинина, птица - от скота, вскормленного натуральными кормами без примесей заморских. Мясо как мясо - духовитое, наваристое.</p>
+                    <div class="price">От 50 медяков за меру</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Мёд">
+                    <h3>Мёд душистый</h3>
+                    <p>Мёд от пчёл, что собирают нектар с лугов цветущих. Липовый, гречишный, разнотравье - на выбор господам знатокам.</p>
+                    <div class="price">От 40 медяков за меру</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Хлеб">
+                    <h3>Хлеб печёный</h3>
+                    <p>Хлеб ржаной, пшеничный, с отрубями - по старинным рецептам в печи дровяной. Корочка хрустит, мякиш дышит.</p>
+                    <div class="price">От 10 медяков за каравай</div>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about">
+            <div class="about-text">
+                <h2>О нашей почтенной ферме</h2>
+                <p>Ферма "Добрый урожай" ведёт свою историю с 1789 года, когда прадед наш, Иван Петрович, получил сии земли за верную службу царю и отечеству.</p>
+                <p>С тех пор из поколения в поколение передаём мы секреты земледелия и скотоводства, не поддаваясь на соблазны новомодных веяний. Как растили и держали предки наши, так и мы продолжаем.</p>
+                <p>Землю пашем конями, навозом удобряем, севооборот соблюдаем. Скот кормим тем, что сами вырастили, без заморских добавок. Потому и продукты у нас - как встарь бывало: вкусные, душистые, настоящие.</p>
+                <p>Почтенные гости! Удостойте нашу ферму посещением - покажем, как живём, угостим тем, что сами производим. Для детей ваших - экскурсия по подворью, для взрослых - дегустация продуктов наших.</p>
+                <a href="#contact" class="btn">Написать нам</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="История фермы">
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2>Как нас отыскать</h2>
+            <p>Желаете отведать наших продуктов или посетить ферму? Милости просим! Пишите, звоните, приезжайте.</p>
+            
+            <div class="contact-info">
+                <div class="contact-details">
+                    <h3>Контакты</h3>
+                    <p><strong>Адрес:</strong> Село Доброе, ул. Центральная, 1</p>
+                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                    <p><strong>Почта:</strong> dobryi.urozhai@ферма.ру</p>
+                    <p><strong>Часы работы:</strong> С восхода до заката, ежедневно, кроме воскресных дней</p>
+                </div>
+                
+                <div class="social-media">
+                    <h3>Мы в соцсетях</h3>
+                    <p>Подписывайтесь на наши ведомости в современных средствах связи:</p>
+                    <div class="social-icons">
+                        <a href="#" title="ВКонтакте"><i class="fab fa-vk"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="newsletter" class="newsletter">
+            <h2>Подписаться на ведомости</h2>
+            <p>Желаете первыми узнавать о новых урожаях, ярмарках и событиях на нашей ферме? Оставьте электронный адрес свой, и будем присылать вам вести регулярно.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Ваш электронный адрес" required>
+                <button type="submit">Подписаться</button>
+            </form>
+        </section>
+        
+        <footer>
+            <p>© 2023 Ферма "Добрый урожай". Все права сохранены как встарь.</p>
+            <p>Сия страница создана с использованием современных технологий, но в духе традиций XVIII века.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Обработка формы подписки
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input').value;
+                
+                // Здесь можно добавить AJAX-запрос или другую логику обработки
+                alert(`Благодарим вас, достопочтенный подписчик! Ваш адрес ${email} внесён в наши ведомости. Ожидайте писем с фермерскими вестями.`);
+                this.querySelector('input').value = '';
+            });
+        }
+        
+        // Добавление иконок Font Awesome
+        const faScript = document.createElement('script');
+        faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
+        faScript.crossOrigin = 'anonymous';
+        document.head.appendChild(faScript);
+        
+        // Анимация карточек продуктов при загрузке
+        window.addEventListener('load', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // Изначально скрываем карточки для анимации
+            productCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
